@@ -5,8 +5,8 @@ import jsantosp.{ Topic, Message }
 
 class QueueTest extends TestKitSpec("MyActorSystem") {
 
-  "QueueActor" should {
-    "should subscribe and publish" in {
+  "Queue" should {
+    "subscribe and publish" in {
 
       val queue = system.actorOf(
         Props(new SimpleQueue()), "queue")
