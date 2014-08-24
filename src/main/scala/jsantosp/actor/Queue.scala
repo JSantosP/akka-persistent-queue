@@ -24,4 +24,4 @@ case class Subscribe(topic: Topic) extends Command
 case class Publish(topic: Topic, message: Message) extends Command
 
 case class Subscribed(topic: Topic, subscriber: ActorRef) extends Event
-case class Published(topic: Topic, message: Message)
+case class Published(topic: Topic, message: Message) extends Event
