@@ -1,5 +1,5 @@
 package jsantosp
 
 trait Message {
-	val timestamp: Long = System.currentTimeMillis
+  val timestamp: Long = System.currentTimeMillis
 }

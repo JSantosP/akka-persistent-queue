@@ -44,13 +44,13 @@ class QueueTest extends TestKitSpec("MyActorSystem") {
     "should subscribe and publish" in {
 
       val queue = system.actorOf(
-        Props(new SimpleQueue()),"queue")
+        Props(new SimpleQueue()), "queue")
 
       val subscriber = system.actorOf(
-        Props(new SimpleSubscriber(queue, SampleTopic)),"subscriber")
+        Props(new SimpleSubscriber(queue, SampleTopic)), "subscriber")
 
       val publisher = system.actorOf(
-        Props(new SimplePublisher(queue, SampleTopic)),"publisher")
+        Props(new SimplePublisher(queue, SampleTopic)), "publisher")
 
       publisher ! SampleMessage("hi")
 
