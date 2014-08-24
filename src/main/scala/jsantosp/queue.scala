@@ -2,9 +2,11 @@ package jsantosp
 
 import akka.actor.ActorRef
 
-trait Queue {
+trait QueueLike {
 
-	def subscribe(topic: Topic, callback: Message => Unit): Unit
+	type Callback = Message => Unit
+
+	def subscribe(topic: Topic, callback: Callback): Unit
 
 	def publish(topic: Topic, message: Message): Unit
 

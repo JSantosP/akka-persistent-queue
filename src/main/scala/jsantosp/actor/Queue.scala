@@ -1,18 +1,20 @@
 package jsantosp.actor
 
 import akka.actor.{Actor,ActorRef}
-import jsantosp.{ Queue, Message, Topic }
+import jsantosp.{ QueueLike, Message, Topic }
 
-trait QueueActor extends Actor with Queue {
+trait Queue extends Actor with QueueLike {
 
   def receive = {
 
     case Subscribe(topic) =>
       val subscriber = sender
       subscribe(topic, subscriber ! _)
+      sender ! Subscribed(topic,sender)
 
     case Publish(topic, message) =>
       publish(topic, message)
+      sender ! Published(topic,message)
 
   }
 
